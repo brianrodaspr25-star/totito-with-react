@@ -1,6 +1,32 @@
 import { useState } from "react"
 import "./Board.css"
 
+const winningConditions = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8],
+    [0, 3, 6], [1, 4, 7], [2, 5, 8],
+    [0, 4, 8], [2, 4, 6]
+]
+
+function calculateWinner (board) {
+
+    for (let i = 0; i < winningConditions.length; i++) {
+        
+        const index = winningConditions[i]
+        const a = board[index[0]]
+        const b = board[index[1]]
+        const c = board[index[2]]
+
+        if ( a === null || b === null || c === null) {
+            continue
+        }
+
+        if ( a === b && b === c) {
+            return a 
+        }
+    }
+    return null
+}
+
 function Board () {
 
     const [board, setBoard] = useState(Array(9).fill(null))
@@ -8,7 +34,7 @@ function Board () {
 
     function handleClick (index) {
 
-        if (board[index]) {
+        if (board[index] || winner) {
             return
         }
         
@@ -20,6 +46,9 @@ function Board () {
 
         setIsXNext(!isXNext)
     }
+
+    const winner = calculateWinner(board)
+    console.log(winner)
 
     return (
         <div className="game">
