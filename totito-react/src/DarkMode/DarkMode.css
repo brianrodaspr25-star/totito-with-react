@@ -1,0 +1,22 @@
+ .toggle {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+ }
+
+ .btn-toggle {
+    color: #fff;
+    background-color: transparent;
+    padding: 0.8rem 1.6rem;
+    border: none;
+    border-radius: 0.8rem;
+    box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.50); 
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.4rem;
+ }
+
+ .btn-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.6rem 1rem rgba(0, 0, 0, 0.15);
+ }

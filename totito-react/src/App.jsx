@@ -1,5 +1,11 @@
+import DarkMode from "./DarkMode"
+
 function App () {
-  return <h1>Totito</h1>
+  return (
+    <>
+    <DarkMode />
+    </>
+  )
 }
 
 export default App
