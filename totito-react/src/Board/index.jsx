@@ -5,6 +5,15 @@ function Board () {
 
     const [board, setBoard] = useState(Array(9).fill(null))
 
+    function handleClick (index) {
+        
+        const newBoard = [...board]
+
+        newBoard[index] = "X"
+
+        setBoard(newBoard)
+    }
+
     return (
         <div className="game">
 
@@ -14,7 +23,7 @@ function Board () {
     
         <section className="game__board">
             {board.map( (value, index) => (
-                <button key={index} className="cell">{value}</button>
+                <button onClick={() => handleClick(index)} key={index} className="cell">{value}</button>
             ))} 
         </section>
     </div>
