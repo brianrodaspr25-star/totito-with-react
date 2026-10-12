@@ -1,4 +1,5 @@
 import DarkMode from "./DarkMode"
+import Board from "./Board"
 import "./App.css"
 
 function App () {
@@ -6,6 +7,7 @@ function App () {
     <>
     <DarkMode />
 
+    <Board />
 
     </>
   )
