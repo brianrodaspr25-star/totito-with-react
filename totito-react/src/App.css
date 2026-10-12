@@ -9,5 +9,23 @@
     min-height: 100vh;
  }
 
+body.dark-theme {
+    background-color: #0f172a;
+    color: #f8fafc;
+}
 
+body.dark-theme .game__turn{
+   color: #38bdf8;
+}
+
+body.dark-theme .cell {
+   border-color: #334155;
+   color: #f8fafc;
+}
+
+body.dark-theme .btn-toggle {
+   background-color: #1e293b;
+   color: #f8fafc;
+   box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.4);
+}
 
