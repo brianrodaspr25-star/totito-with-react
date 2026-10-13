@@ -1,3 +1,4 @@
+import Modal from "../Modal"
 import { useState } from "react"
 import "./Board.css"
 
@@ -47,22 +48,29 @@ function Board () {
         setIsXNext(!isXNext)
     }
 
+    function handleRestart () {
+            setBoard(Array(9).fill(null))
+            setIsXNext(true)
+    }
+
     const winner = calculateWinner(board)
     console.log(winner)
 
     return (
         <div className="game">
 
-        <article className="game__message">
-            <h2>El turno es para <span className="game__turn">{isXNext ? "X" : "O"}</span></h2>
-        </article>
+            <article className="game__message">
+                <h2>El turno es para <span className="game__turn">{isXNext ? "X" : "O"}</span></h2>
+            </article>
     
-        <section className="game__board">
-            {board.map( (value, index) => (
-                <button onClick={() => handleClick(index)} key={index} className="cell">{value}</button>
-            ))} 
-        </section>
-    </div>
+            <section className="game__board">
+                {board.map( (value, index) => (
+                    <button onClick={() => handleClick(index)} key={index} className="cell">{value}</button>
+                ))} 
+            </section>
+
+            {winner && <Modal winner={winner} onRestart={handleRestart} />}
+        </div>
     )
 }
 
