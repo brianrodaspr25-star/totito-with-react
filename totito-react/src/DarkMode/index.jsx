@@ -3,11 +3,12 @@ import { useState, useEffect } from "react"
 
 function DarkMode () {
 
-    const [isDark, setIsDark] = useState(false)
+    const [isDark, setIsDark] = useState(() => localStorage.getItem("darkMode") === "true")
 
     useEffect (() => {
         
         document.body.classList.toggle("dark-theme", isDark)
+        localStorage.setItem("darkMode", isDark)
 
     }, [isDark])
 
