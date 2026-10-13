@@ -54,7 +54,7 @@ function Board () {
     }
 
     const winner = calculateWinner(board)
-    console.log(winner)
+    const isDraw = !winner && board.every( c => c !== null)
 
     return (
         <div className="game">
@@ -69,7 +69,7 @@ function Board () {
                 ))} 
             </section>
 
-            {winner && <Modal winner={winner} onRestart={handleRestart} />}
+            { (winner || isDraw) && <Modal winner={winner} isDraw={isDraw} onRestart={handleRestart} />}
         </div>
     )
 }
